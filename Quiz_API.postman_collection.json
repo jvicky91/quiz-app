@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "bf4354bc-197a-4805-bbe1-f64a0ac0eda2",
+		"name": "Quiz API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17167933"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"XYZ\", \"email\": \"xyx@example.com\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Get Quizzes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/quizzes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quizzes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Sample Quiz\",\n  \"questions\": [\n    {\n      \"text\": \"What is 2 + 2?\",\n      \"options\": [2, 3, 4, 5],\n      \"correct_option\": 3\n    },\n    {\n      \"text\": \"What is the capital of France?\",\n      \"options\": [\"Berlin\", \"Paris\", \"Madrid\", \"Rome\"],\n      \"correct_option\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quizzes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Quiz Answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"selected_option\": 2, \"user_id\": 2 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quizzes/1/questions/2/answer",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quizzes",
+								"1",
+								"questions",
+								"2",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Quiz Result",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/quizzes/1/users/1/results",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quizzes",
+								"1",
+								"users",
+								"1",
+								"results"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
